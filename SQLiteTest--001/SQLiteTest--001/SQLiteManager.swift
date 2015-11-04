@@ -61,7 +61,11 @@ class SQLiteManager: NSObject {
         //第二个参数是句柄地址   ppDb: UnsafeMutablePointer<COpaquePointer>  是一个句柄的指针  COpaquePointer
         
         //path 中的true代表展开波浪号   如果是false path的值是  ~/Documents/testDB.db 打开数据库失败
-        let path = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).last!.stringByAppendingPathComponent(dbName)
+        
+        let u = "/" + dbName
+        
+        let path = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).last!.stringByAppendingString(u)
+        
         
         
         print(path)
